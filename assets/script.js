@@ -43,6 +43,9 @@ function setWordHistory(word) {
          searchHistory.innerHTML = layOut   
         }
 }
+
+showWordHistory();
+
 let text = document.querySelector("#word");
 let word = 'riot';
 
