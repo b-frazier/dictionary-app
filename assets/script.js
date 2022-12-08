@@ -1,14 +1,8 @@
-var word = "";
 var searchButton = document.getElementById("searched-button");
-var wordSearch = document.getElementById("search-input");
+var wordSearch = document.getElementById("search");
 var searchHistory = document.getElementById("search-history");
 
-// search button click and set/display word in history
-searchButton.addEventListener("click", function(e) {
-    word = wordSearch.value;
-    displayWord(word);
-    setWordHistory(word);
-})
+var word = wordSearch.value;
 
 // set searched word in local storage
 function setWordHistory(word) {
@@ -44,20 +38,37 @@ function setWordHistory(word) {
         }
 }
 
-showWordHistory();
+// search button click and set/display word in history
+// searchButton.addEventListener("click", function(e){
+//     e.preventDefault();
+//     showWordHistory(word);
+//     setWordHistory(word);
+// })
+
+// showWordHistory();
 
 let text = document.querySelector("#word");
-let word = 'riot';
+
+let temp = 'play'
 
 function getWord(){
-    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ word)
+    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ temp)
     .then(response => response.json())
     .then(findWord)
     .catch(err => console.error(err));
+
+
 };
 
 function findWord(data){
 	for (let i = 0; i < data.length; i++){
-		text.textContent = data[i].word;
+		text.textContent = data[i].temp;
+        console.log(data);
 	}
 };
+
+getWord();
+
+function getPronunciation(){
+
+}
