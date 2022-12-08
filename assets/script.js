@@ -2,7 +2,18 @@ var searchButton = document.getElementById("search-button");
 var wordSearch = document.getElementById("search");
 var searchHistory = document.getElementById("search-history");
 
-var word = wordSearch.value;
+var searchWord = '';
+
+// search button click and set/display word in history
+searchButton.addEventListener("click", function(e){
+    e.preventDefault();
+    searchWord = wordSearch.value;
+    showWordHistory(word);
+    setWordHistory(word);
+    getWord();
+    getPronunciation();
+    getDefinition();
+});
 
 // set searched word in local storage
 function setWordHistory(word) {
@@ -38,21 +49,13 @@ function setWordHistory(word) {
         }
 }
 
-// search button click and set/display word in history
-searchButton.addEventListener("click", function(e){
-    e.preventDefault();
-    showWordHistory(word);
-    setWordHistory(word);
-});
-
 showWordHistory();
 
 let wordText = document.querySelector("#word");
 
-let temp = 'play'
 
 function getWord(){
-    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ temp)
+    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ searchWord)
     .then(response => response.json())
     .then(findWord)
     .catch(err => console.error(err));
@@ -70,7 +73,7 @@ getWord();
 let pronunciation = document.getElementById('pronunciation');
 
 function getPronunciation(){
-    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ temp)
+    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ searchWord)
     .then(response => response.json())
     .then(findPronunciation)
     .catch(err => console.error(err));
@@ -87,7 +90,7 @@ getPronunciation();
 let definition = document.getElementById('definition');
 
 function getDefinition(){
-    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ temp)
+    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ searchWord)
     .then(response => response.json())
     .then(findDefinition)
     .catch(err => console.error(err));
