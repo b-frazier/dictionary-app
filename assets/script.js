@@ -62,7 +62,7 @@ function getWord(){
 
 function findWord(data){
 	for (let i = 0; i < data.length; i++){
-		text.textContent = data[i].temp;
+		text.textContent = data[0].word;
         console.log(data);
 	}
 };
