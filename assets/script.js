@@ -47,7 +47,7 @@ function setWordHistory(word) {
 
 // showWordHistory();
 
-let text = document.querySelector("#word");
+let wordText = document.querySelector("#word");
 
 let temp = 'play'
 
@@ -56,19 +56,47 @@ function getWord(){
     .then(response => response.json())
     .then(findWord)
     .catch(err => console.error(err));
-
-
 };
 
 function findWord(data){
 	for (let i = 0; i < data.length; i++){
-		text.textContent = data[0].word;
+		wordText.textContent = data[0].word;
         console.log(data);
 	}
 };
 
 getWord();
 
-function getPronunciation(){
+let pronunciation = document.getElementById('pronunciation');
 
-}
+function getPronunciation(){
+    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ temp)
+    .then(response => response.json())
+    .then(findPronunciation)
+    .catch(err => console.error(err));
+};
+
+function findPronunciation(data){
+    for (let i = 0; i < data.length; i++){
+        pronunciation.textContent = data[0].phonetic;
+    }
+};
+
+getPronunciation();
+
+let definition = document.getElementById('definition');
+
+function getDefinition(){
+    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ temp)
+    .then(response => response.json())
+    .then(findDefinition)
+    .catch(err => console.error(err));
+};
+
+function findDefinition(data){
+    for (let i = 0; i < data.length; i++){
+        definition.textContent = data[0].meanings[0].definitions[0].definition;
+    }
+};
+
+getDefinition();
