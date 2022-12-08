@@ -1,14 +1,8 @@
-var word = "";
-var searchButton = document.getElementById("searched-button");
-var wordSearch = document.getElementById("search-input");
+var searchButton = document.getElementById("search-button");
+var wordSearch = document.getElementById("search");
 var searchHistory = document.getElementById("search-history");
 
-// search button click and set/display word in history
-searchButton.addEventListener("click", function(e) {
-    word = wordSearch.value;
-    displayWord(word);
-    setWordHistory(word);
-})
+var word = wordSearch.value;
 
 // set searched word in local storage
 function setWordHistory(word) {
@@ -44,13 +38,21 @@ function setWordHistory(word) {
         }
 }
 
+// search button click and set/display word in history
+searchButton.addEventListener("click", function(e){
+    e.preventDefault();
+    showWordHistory(word);
+    setWordHistory(word);
+});
+
 showWordHistory();
 
-let text = document.querySelector("#word");
-let word = 'riot';
+let wordText = document.querySelector("#word");
+
+let temp = 'play'
 
 function getWord(){
-    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ word)
+    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ temp)
     .then(response => response.json())
     .then(findWord)
     .catch(err => console.error(err));
@@ -58,6 +60,43 @@ function getWord(){
 
 function findWord(data){
 	for (let i = 0; i < data.length; i++){
-		text.textContent = data[i].word;
+		wordText.textContent = data[0].word;
+        console.log(data);
 	}
 };
+
+getWord();
+
+let pronunciation = document.getElementById('pronunciation');
+
+function getPronunciation(){
+    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ temp)
+    .then(response => response.json())
+    .then(findPronunciation)
+    .catch(err => console.error(err));
+};
+
+function findPronunciation(data){
+    for (let i = 0; i < data.length; i++){
+        pronunciation.textContent = data[0].phonetic;
+    }
+};
+
+getPronunciation();
+
+let definition = document.getElementById('definition');
+
+function getDefinition(){
+    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/'+ temp)
+    .then(response => response.json())
+    .then(findDefinition)
+    .catch(err => console.error(err));
+};
+
+function findDefinition(data){
+    for (let i = 0; i < data.length; i++){
+        definition.textContent = data[0].meanings[0].definitions[0].definition;
+    }
+};
+
+getDefinition();
