@@ -3,7 +3,7 @@ var wordSearch = document.getElementById("search");
 var searchHistory = document.getElementById("search-history");
 
 var word = wordSearch.value;
-
+var x =  '';
 // set searched word in local storage
 function setWordHistory(word) {
     let words = []
@@ -99,4 +99,4 @@ function findDefinition(data){
     }
 };
 
-getDefinition();
+getDefinition();t
