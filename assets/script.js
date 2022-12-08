@@ -1,6 +1,9 @@
 var searchButton = document.getElementById("search-button");
 var wordSearch = document.getElementById("search");
 var searchHistory = document.getElementById("search-history");
+var dayKey = 'c9a0e2e06bmshebe493b8282fd84p1a2be3jsn2772e199a7db'
+var dayHost = 'word-of-the-day2.p.rapidapi.com'
+var dayUrl = 'https://word-of-the-day2.p.rapidapi.com/word/today'
 
 var searchWord = '';
 
@@ -8,8 +11,10 @@ var searchWord = '';
 searchButton.addEventListener("click", function(e){
     e.preventDefault();
     searchWord = wordSearch.value;
-    showWordHistory(word);
-    setWordHistory(word);
+    // passing word when it needs to be searched word
+    // removed show word param since it is not called here
+    showWordHistory();
+    setWordHistory(searchWord);
     getWord();
     getPronunciation();
     getDefinition();
@@ -43,7 +48,7 @@ function setWordHistory(word) {
 // this is the function that displays searched words
     let layOut = ""
             words.forEach(function(value){
-                layOut+= `<p onclick = "displayWord('${value}')">${value}</p>`
+                layOut+= `<p onclick = "historyClick('${value}')">${value}</p>`
             })
          searchHistory.innerHTML = layOut   
         }
@@ -69,6 +74,13 @@ function findWord(data){
 };
 
 getWord();
+
+function historyClick(keyWord) {
+    searchWord = keyWord
+    getWord();
+    getPronunciation();
+    getDefinition();
+}
 
 let pronunciation = document.getElementById('pronunciation');
 
@@ -102,4 +114,23 @@ function findDefinition(data){
     }
 };
 
-getDefinition();
+// getDefinition();
+
+async function getRandom() {
+    const options = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': dayKey,
+    'X-RapidAPI-Host': dayHost
+  }
+};
+    let response = await fetch(dayUrl, options);
+    console.log(response)
+    let data = await response.json();
+    console.log(data[1]);
+    document.getElementById('daily-word').innerText = data[1].word
+    document.getElementById('daily-meaning').innerText = data[1].mean
+
+   
+}
+    getRandom();
