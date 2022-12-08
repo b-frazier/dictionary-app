@@ -1,4 +1,4 @@
-var searchButton = document.getElementById("searched-button");
+var searchButton = document.getElementById("search-button");
 var wordSearch = document.getElementById("search");
 var searchHistory = document.getElementById("search-history");
 
@@ -39,13 +39,13 @@ function setWordHistory(word) {
 }
 
 // search button click and set/display word in history
-// searchButton.addEventListener("click", function(e){
-//     e.preventDefault();
-//     showWordHistory(word);
-//     setWordHistory(word);
-// })
+searchButton.addEventListener("click", function(e){
+    e.preventDefault();
+    showWordHistory(word);
+    setWordHistory(word);
+});
 
-// showWordHistory();
+showWordHistory();
 
 let wordText = document.querySelector("#word");
 
