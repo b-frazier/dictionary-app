@@ -102,3 +102,39 @@ function findDefinition(data){
 };
 
 getDefinition();
+
+// random word generator
+function getRandomWord(){
+    fetch('https://random-word-api.herokuapp.com/word?number=1')
+    .then(response => response.json())
+    .then(findRandomWord)
+    .catch(err => console.error(err));
+}
+
+function findRandomWord(data){
+    for (let i = 0; i < data.length; i++){
+        wordText.textContent = data[0];
+    }
+}
+
+getRandomWord();
+
+// random word button
+var randomButton = document.getElementById("random-button");
+
+randomButton.addEventListener("click", function(e){
+    e.preventDefault();
+    getRandomWord();
+}
+
+);
+
+// display searched word in search bar
+function displayWord(word) {
+  wordSearch.value = word
+  getWord()
+  getPronunciation()
+  getDefinition()
+}
+
+
