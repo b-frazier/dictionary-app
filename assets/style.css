@@ -1,0 +1,15 @@
+#search-history {
+    width: 400px;
+    border-radius: 6px;
+}
+
+.container-result {
+    border: black solid 1px;
+    margin-top: 20px;
+    
+}
+
+.word-of-the-day {
+    margin-right: 100px;
+    
+}
