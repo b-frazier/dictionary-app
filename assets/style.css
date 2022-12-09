@@ -6,10 +6,15 @@
 .container-result {
     border: black solid 1px;
     margin-top: 20px;
-    
+
 }
 
 .word-of-the-day {
     margin-right: 100px;
-    
+
 }
+
+.search-history {
+    cursor: pointer;
+}
+
