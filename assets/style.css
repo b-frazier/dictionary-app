@@ -13,6 +13,10 @@ header {
     border-radius: 6px;
 }
 
+#search-button {
+    border-radius: 6px;
+}
+
 .container-result {
 
     margin-top: 20px;
@@ -27,10 +31,17 @@ h2 {
 
 .word-of-the-day {
     margin-right: 100px;
-    color: rgb(5, 9, 8)
+    color: white;
+    padding-left: 50px;
+    
 }
 
 .search-history {
+    cursor: pointer;
+    color: white;
+    
+}
+.search-history ul{
     cursor: pointer;
     color: white;
     font-style: italic;
@@ -46,9 +57,34 @@ h2 {
     }
 
     .container-result {
+        justify-content: center;
         width: 500px;
         word-wrap: normal;
+        align-content: center;
+        margin-left: 150px;
         
+        
+        
+    }
+
+    .word-of-the-day {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .search-history {
+        display: none;
+    }
+
+    #search {
+        width: 300px;
+    }
+
+    .container-result {
+       
+        width: 400px;
+        word-wrap: normal;
     }
 
     .word-of-the-day {
