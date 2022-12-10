@@ -1,93 +1,101 @@
 body {
-    background-image: url(/assets/images/library\ \(1\).jpg\ final.jpg);
-    background-color: black;
+  background-image: url(/assets/images/library\ \(1\).jpg\ final.jpg);
+  background-color: black;
 
 }
 
 header {
-    color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 #search {
-    width: 400px;
-    border-radius: 6px;
+  width: 400px;
+  border-radius: 6px;
 }
 
 #search-button {
-    border-radius: 6px;
+  border-radius: 6px;
 }
 
 .container-result {
 
-    margin-top: 20px;
-    padding: 50px;
-    width: 650px;
-    color: white;
+  margin-top: 20px;
+  padding: 50px;
+  width: 650px;
+  color: white;
 }
 
 h2 {
-    color: white;
+  color: white;
 }
 
 .word-of-the-day {
-    margin-right: 100px;
-    color: white;
-    padding-left: 50px;
-    
+  margin-right: 100px;
+  color: white;
+  padding-left: 50px;
+
 }
 
 .search-history {
-    cursor: pointer;
-    color: white;
-    
+  cursor: pointer;
+  color: white;
+
 }
-.search-history ul{
-    cursor: pointer;
-    color: white;
-    font-style: italic;
+
+.search-history ul {
+  cursor: pointer;
+  color: white;
+  font-style: italic;
 }
 
 @media screen and (max-width: 995px) {
-    .search-history {
-        display: none;
-    }
+  .search-history {
+    display: none;
+  }
 
-    #search {
-        width: 200px;
-    }
+  #search {
+    width: 200px;
+  }
 
-    .container-result {
-        justify-content: center;
-        width: 500px;
-        word-wrap: normal;
-        align-content: center;
-        margin-left: 150px;
-        
-        
-        
-    }
+  .container-result {
+    justify-content: center;
+    width: 500px;
+    word-wrap: normal;
+    align-content: center;
 
-    .word-of-the-day {
-        display: none;
-    }
+
+
+
+  }
+
+  .word-of-the-day {
+    display: none;
+  }
 }
 
-@media screen and (max-width: 600px) {
-    .search-history {
-        display: none;
-    }
+@media screen and (min-width: 600px) {}
 
-    #search {
-        width: 300px;
-    }
+#search {
+  width: 300px;
+}
 
-    .container-result {
-       
-        width: 400px;
-        word-wrap: normal;
-    }
+.container-result {
+  justify-content: center;
 
-    .word-of-the-day {
-        display: none;
-    }
+}
+
+@media screen and (max-width: 460px) {
+  .container-result {
+
+    width: auto;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  #search {
+    width: auto;
+  }
+
+
+
 }
