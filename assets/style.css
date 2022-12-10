@@ -1,20 +1,57 @@
+body {
+    background-image: url(/assets/images/library\ \(1\).jpg\ final.jpg);
+    background-color: black;
+
+}
+
+header {
+    color: rgb(255, 255, 255);
+}
+
 #search {
     width: 400px;
     border-radius: 6px;
 }
 
 .container-result {
-    border: black solid 1px;
-    margin-top: 20px;
 
+    margin-top: 20px;
+    padding: 50px;
+    width: 650px;
+    color: white;
+}
+
+h2 {
+    color: white;
 }
 
 .word-of-the-day {
     margin-right: 100px;
-
+    color: rgb(5, 9, 8)
 }
 
 .search-history {
     cursor: pointer;
+    color: white;
+    font-style: italic;
 }
 
+@media screen and (max-width: 995px) {
+    .search-history {
+        display: none;
+    }
+
+    #search {
+        width: 200px;
+    }
+
+    .container-result {
+        width: 500px;
+        word-wrap: normal;
+        
+    }
+
+    .word-of-the-day {
+        display: none;
+    }
+}
