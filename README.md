@@ -19,7 +19,7 @@ Dictionary-App solves the problem of people not knowing the correct definitions 
 Dictionary-App stands out by having not only a user-friendly interface, but also has new words you can learn each and everyday to broaden your vocabulary
 
 ## Preview Image
-<img src="assets/images/final-img.png" style="width: 700px">
+<img src="assets/images/final-img.png" width="700">
 
 https://b-frazier.github.io/dictionary-app/
 
